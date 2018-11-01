@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Lytics JSON",
+    "short_name": "LJSON",
+    "description": "A small browser extension that will help surface configuration objects in the Lytics UI.",
+    "version": "0.0.1",
+    "minimum_chrome_version": "60",
+    "permissions": [
+        "webRequest",
+        "storage",
+        "https://api.lytics.io/",
+        "https://activate.getlytics.com/",
+        "contextMenus",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://activate.getlytics.com/*"
+            ],
+            "js": [
+                "vendor/jquery.min.js",
+                "contentScript.js"
+            ]
+        }
+    ],
+    "icons": {
+        "16": "assets/lytics.ico",
+        "48": "assets/lytics.ico",
+        "128": "assets/lytics.ico"
+    },
+    "background": {
+        "page": "background.html"
+    }
+}
