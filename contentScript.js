@@ -5,13 +5,12 @@ const injectStyles = (rule) => {
   }).appendTo('body');
 }
 
-injectStyles('.tooltippy { position: relative; display: inline-block; \
-  border-bottom: 1px dotted black;}');
+injectStyles('.tooltippy { position: relative; display: inline-block; }');
 injectStyles('.tooltippy .tooltippytext { font-family: monospace; \
   font-size: 14px; visibility: hidden; width: 500px; word-wrap: break-word; \
   white-space: pre-wrap; background-color: #555; color: #fff; \
   padding: 5px 0 5px 5px; border-radius: 6px; position: absolute; z-index: 1; \
-  left: 50%; margin-left: -60px; opacity: 0; transition: opacity 0.3s; }');
+  left: 50%; margin-left: -20px; opacity: 0; transition: opacity 0.3s; }');
 injectStyles('.tooltippy .tooltippytext::after { content: ""; \
 position: absolute; top: 100%; left: 50%; margin-left: -5px; \
 border-width: 5px; border-style: solid; \
