@@ -86,7 +86,6 @@ const doit = () => {
         accountData.id).then(res => {
         addToPage(res.data, 'div h2.segment-name');
       });
-      return accountData;
     });
   } else if (section == 'user') {
 
@@ -98,10 +97,10 @@ const doit = () => {
       return res.data;
     }).then((accountData) => {
       getJsonFromAPI(lyticsApi + 'entity/' + section + '/' + guid +  '/' +
-        identifier + '?account_id=' + accountData.id).then(res => {
-        addToPage(res.data, 'h2.with-subheading.pb-sm.util-justify-center');
-      });
-      return accountData;
+        identifier + '?account_id=' + accountData.id + '&meta=true&wait=true')
+        .then(res => {
+          addToPage(res, 'h2.with-subheading.pb-sm.util-justify-center');
+        });
     });
 
   }
