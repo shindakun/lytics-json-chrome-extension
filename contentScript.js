@@ -88,6 +88,22 @@ const doit = () => {
       });
       return accountData;
     });
+  } else if (section == 'user') {
+
+    // support for profile object only tested with /user/email/a@b.com so far
+    
+    let identifier = encodeURIComponent(document.location.pathname.split('/')[3]);
+
+    getJsonFromAPI(lyticsApi + 'account/' + aid).then((res) => {
+      return res.data;
+    }).then((accountData) => {
+      getJsonFromAPI(lyticsApi + 'entity/' + section + '/' + guid +  '/' +
+        identifier + '?account_id=' + accountData.id).then(res => {
+        addToPage(res.data, 'h2.with-subheading.pb-sm.util-justify-center');
+      });
+      return accountData;
+    });
+
   }
 }
 
