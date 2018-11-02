@@ -89,8 +89,7 @@ const doit = () => {
     });
   } else if (section == 'user') {
 
-    // support for profile object only tested with /user/email/a@b.com so far
-    
+    // need to grab our email or other identifier off the URL
     let identifier = encodeURIComponent(document.location.pathname.split('/')[3]);
 
     getJsonFromAPI(lyticsApi + 'account/' + aid).then((res) => {
